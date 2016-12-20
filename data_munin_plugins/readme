@@ -16,3 +16,6 @@ ln -s /usr/share/munin/plugins/solr4_.py /etc/munin/plugins/solr_indexsize
 ln -s /usr/share/munin/plugins/solr4_.py /etc/munin/plugins/solr_memory
 ln -s /usr/share/munin/plugins/solr4_.py /etc/munin/plugins/ solr_qps
 ln -s /usr/share/munin/plugins/solr4_.py /etc/munin/plugins/solr_requesttimes_select
+
+# munin-node-configure --suggest | grep redis
+# munin-node-configure --suggest | grep solr
