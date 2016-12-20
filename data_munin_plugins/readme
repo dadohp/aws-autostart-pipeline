@@ -1,0 +1,13 @@
+###Redis plugins
+ln -s /usr/share/munin/plugins/redis_ /etc/munin/plugins/redis_connected_clients
+ln -s /usr/share/munin/plugins/redis_ /etc/munin/plugins/redis_key_ratio
+ln -s /usr/share/munin/plugins/redis_ /etc/munin/plugins/redis_keys_per_sec
+ln -s /usr/share/munin/plugins/redis_ /etc/munin/plugins/redis_per_sec
+ln -s /usr/share/munin/plugins/redis_ /etc/munin/plugins/redis_used_key
+ln -s /usr/share/munin/plugins/redis_ /etc/munin/plugins/redis_used_memory
+
+###SOLR plugins
+ln -s /usr/share/munin/plugins/solr4_.py /etc/munin/plugins/solr_indexsize
+ln -s /usr/share/munin/plugins/solr4_.py /etc/munin/plugins/solr_memory
+ln -s /usr/share/munin/plugins/solr4_.py /etc/munin/plugins/ solr_qps
+ln -s /usr/share/munin/plugins/solr4_.py /etc/munin/plugins/solr_requesttimes_select
