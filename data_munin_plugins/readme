@@ -19,3 +19,25 @@ ln -s /usr/share/munin/plugins/solr4_.py /etc/munin/plugins/solr_requesttimes_se
 
 # munin-node-configure --suggest | grep redis
 # munin-node-configure --suggest | grep solr
+
+###Memcached plugins
+$ cd  /etc/munin/plugins
+$ sudo ln -snf /usr/share/munin/plugins/memcached_ memcached_bytes
+$ sudo ln -snf /usr/share/munin/plugins/memcached_ memcached_counters
+$ sudo ln -snf /usr/share/munin/plugins/memcached_ memcached_rates
+$ sudo aptitude install libcache-memcached-perl 
+$ sudo /etc/init.d/munin-node restart
+$ sudo tail -f /var/log/munin/munin-node.log
+
+
+Edit: If you are running memcached on a non default port or host, you need to 
+$ sudo nano /etc/munin/plugin-conf.d/munin-node
+
+Add the following lines to the end of the config
+
+[memcached_*]
+env.host IP_server
+env.port 11211
+
+Save, exit, and restart your node
+$ sudo /etc/init.d/munin-node restart
