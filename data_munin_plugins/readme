@@ -1,3 +1,8 @@
+# apt-get install aptitude
+# aptitude install libswitch-perl
+# aptitude install libwww-perl
+# aptitude install libparse-http-useragent-perl 
+
 ###Redis plugins
 ln -s /usr/share/munin/plugins/redis_ /etc/munin/plugins/redis_connected_clients
 ln -s /usr/share/munin/plugins/redis_ /etc/munin/plugins/redis_key_ratio
