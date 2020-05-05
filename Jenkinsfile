@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('One') {
                 steps {
-                        echo 'Hi, this is Ajit from Acadgild'
+                        echo 'Hi, prepare for deploy yaa...:)'
 			
                 }
         }
@@ -34,7 +34,7 @@ pipeline {
                         agent {
                                 docker {
                                         reuseNode true
-					image 'ubuntu'
+					                    image 'ubuntu'
                                         }
 			}
 				steps {
