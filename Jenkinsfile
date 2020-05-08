@@ -1,42 +1,47 @@
 pipeline {
-         agent any
-         stages {
-                 stage('Build') {
-                 steps {
-                     echo 'Hi, Dado. Starting to build the App.'
-                 }
-                 }
-                 stage('Test') {
-                 steps {
-                    input('Do you want to proceed?')
-                 }
-                 }
-                 stage('Deploy') {
-                 parallel {
-                           stage('Deploy start ') {
-                           steps {
-                                echo "Start the deploy .."
-                           }
-                           }
-                            stage('Deploying now') {
-                            agent {
-                                    docker {
-                                            reuseNode true
-                                            image ‘nginx’
-                                           }
-                                    }
-
-                              steps {
-                                echo "Docker Created"
-                              }
-                           }
-                           }
-                           }
-                 stage('Prod') {
-                     steps {
-                                echo "App is Prod Ready"
-                              }
-
-              }
-}
+    agent any
+    stages {
+        stage('One') {
+                steps {
+                        echo 'Hi, prepare for deploy yaa...:)'
+			
+                }
+        }
+	    stage('Two'){
+		    
+		steps {
+			input('Do you want to proceed?')
+        }
+	    }
+        stage('Three') {
+                when {
+                        not {
+                                branch "master"
+                        }
+                }
+                steps {
+			echo "Hello"
+                        }
+        }
+        stage('Four') {
+                parallel {
+                        stage('Unit Test') {
+                                steps{
+                                        echo "Running the unit test..."
+                                }
+                        }
+                        stage('Integration test') {
+                        agent {
+                                docker {
+                                        reuseNode true
+				        image 'ubuntu'
+                                        }
+			}
+				steps {
+					echo 'Running the integration test..'
+				}
+                               
+			}  }
+        }
+    }
 }
