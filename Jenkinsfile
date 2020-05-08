@@ -12,20 +12,19 @@ pipeline {
                  }
                  }
                  stage('Deploy') {
-                 parallel {
+                   parallel {
                         stage('Deploy start ') {
                            steps {
-                                echo "Start the deploy .."
-                           }
+                                   echo "Start the deploy .."
+                            }
                            }
                         stage('Deploying now') {
-                            agent {
-                                    docker {
-                                            reuseNode true
-                                            image ‘nginx’
+                        agent {
+                                 docker {
+                                          reuseNode true
+                                          image ‘nginx’
                                            }
                                     }
-
                               steps {
                                 echo "Docker Created"
                               }
@@ -34,8 +33,8 @@ pipeline {
                            }
                  stage('Prod') {
                      steps {
-                                echo "App is Prod Ready"
-                              }
+                             echo "App is Prod Ready"
+                           }
 
               }
 }
