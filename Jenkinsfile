@@ -3,7 +3,7 @@ pipeline {
          stages {
                  stage('Build') {
                  steps {
-                     echo 'Hi, Team_Dado. Starting to build the App.'
+                     echo 'Hi, Dado. Starting to build the App.'
                  }
                  }
                  stage('Test') {
@@ -12,19 +12,20 @@ pipeline {
                  }
                  }
                  stage('Deploy') {
-                   parallel {
-                        stage('Deploy start ') {
+                 parallel {
+                           stage('Deploy start ') {
                            steps {
-                                   echo "Start the deploy .."
-                            }
+                                echo "Start the deploy .."
                            }
-                        stage('Deploying now') {
-                        agent {
-                                 docker {
-                                          reuseNode true
-                                          image ‘nginx’
+                           }
+                            stage('Deploying now') {
+                            agent {
+                                    docker {
+                                            reuseNode true
+                                            image ‘nginx’
                                            }
                                     }
+
                               steps {
                                 echo "Docker Created"
                               }
@@ -33,8 +34,8 @@ pipeline {
                            }
                  stage('Prod') {
                      steps {
-                             echo "App is Prod Ready"
-                           }
+                                echo "App is Prod Ready"
+                              }
 
               }
 }
