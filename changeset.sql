@@ -1,4 +1,7 @@
 --liquibase formatted sql
 --changeset author:1 
-drop table test3;
+create table test3 ( 
+id int primary key,
+name varchar(255)
+);
 --rollback drop table test3;
