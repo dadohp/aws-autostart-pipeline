@@ -1,7 +1,3 @@
 --liquibase formatted sql
---changeset author:1 
-create table test3 ( 
-id int primary key,
-name varchar(255)
-);
---rollback drop table test3;
+--changeset author:3 
+alter table test2 add column address varchar(255);
