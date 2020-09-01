@@ -1,1 +1,1 @@
-# Welcome to our auto-scaling repository
+# Welcome to our auto-scaling repo
